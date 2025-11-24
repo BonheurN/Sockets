@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Compile Java files
 javac ChatServer.java ChatClient.java
 
@@ -7,9 +8,9 @@ java ChatServer &
 SERVER_PID=$!
 sleep 2  # Wait for server initialization
 
-# Start clients (modify number as needed)
+# Start clients using Windows start command
 for i in {1..3}; do
-  x-terminal-emulator -e "java ChatClient" &
+  start javaw -cp "$(pwd)" ChatClient
 done
 
 # Cleanup instruction
